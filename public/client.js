@@ -6,7 +6,7 @@ $( document ).ready(function() {
     //let  items = [];
     itemsRaw = data;
     $.each(data, function(i, val) {
-      items.push('<li class="bookItem" id="' + i + '">' + val.title + ' - ' + val.commentcount + ' comments</li>');
+      items.push('<li style="margin-left: 55px;" class="bookItem" id="' + i + '">' + val.title + ' - ' + val.commentcount + ' comments</li>');
       return ( i !== 14 );
     });
     if (items.length >= 15) {
@@ -20,7 +20,7 @@ $( document ).ready(function() {
   
   let  comments = [];
   $('#display').on('click','li.bookItem',function() {
-    $("#detailTitle").html('<b>'+itemsRaw[this.id].title+'</b> (id: '+itemsRaw[this.id]._id+')');
+    $("#detailTitle").html('<b style="padding: 28px;">'+itemsRaw[this.id].title+'</b> (id: '+itemsRaw[this.id]._id+')');
     $.getJSON('/api/books/'+itemsRaw[this.id]._id, function(data) {
       comments = [];
       $.each(data.comments, function(i, val) {
